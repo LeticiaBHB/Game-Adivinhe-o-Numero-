@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std; //não vou precisar mais usar o std::cout e o std::endl, apenas o cout e endl
-
+//
 int main() {
     std::cout << "******************* \n "
                  "Bem vindos ao jogo da adivinhação!\n"
