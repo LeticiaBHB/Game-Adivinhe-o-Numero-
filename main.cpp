@@ -5,7 +5,7 @@ int main() {
     std::cout << "******************* \n "
                  "Bem vindos ao jogo da adivinhação!\n"
                  "********************" << std::endl;
-    const int numero_secreto = 42;
+    const int NUMERO_SECRETO = 42; // variável sempre letra maiuscula
     //cout<<"O número secreto é "<< numero_secreto <<" Não conte para ninguém!"<<endl;
 
 
@@ -14,8 +14,8 @@ int main() {
     cout<<"qual o seu chute?";
     cin >> chute;
     cout<<"o valor do seu chute é"<< chute<<endl;
-    bool acertou = chute == numero_secreto; // variável booleana
-    bool maior = chute > numero_secreto;
+    bool acertou = chute == NUMERO_SECRETO; // variável booleana
+    bool maior = chute > NUMERO_SECRETO;
 
     if(acertou){
         cout<<"parabéns você acertou o número secreto!!"<<endl;
