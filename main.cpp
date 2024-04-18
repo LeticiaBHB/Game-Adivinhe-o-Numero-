@@ -8,14 +8,18 @@ int main() {
     int numero_secreto = 42;
     //cout<<"O número secreto é "<< numero_secreto <<" Não conte para ninguém!"<<endl;
 
+
+
     int chute;
     cout<<"qual o seu chute?";
     cin >> chute;
     cout<<"o valor do seu chute é"<< chute<<endl;
+    bool acertou = chute == numero_secreto; // variável booleana
+    bool maior = chute > numero_secreto;
 
-    if(chute == numero_secreto){
+    if(acertou){
         cout<<"parabéns você acertou o número secreto!!"<<endl;
-    } else if (chute > numero_secreto){
+    } else if (maior){
     cout<<"seu chute foi maior que o número secreto"<<endl;
     }
     else{
