@@ -9,6 +9,7 @@ int main() {
     //cout<<"O número secreto é "<< numero_secreto <<" Não conte para ninguém!"<<endl;
     bool nao_acertou = true;
     int tentativas = 0;
+    double pontos = 1000.0;
 
     while(nao_acertou){
         tentativas = tentativas +1; // ou tentativas++
@@ -16,6 +17,10 @@ int main() {
         cout<<"Tentativas "<< tentativas<<endl;
         cout<<"qual o seu chute?";
         cin >> chute;
+
+        double pontos_perdidos = abs(chute - NUMERO_SECRETO)/2.0; //abs é valor absoluto,vai dar positivo
+        pontos = pontos - pontos_perdidos;
+
         cout<<"o valor do seu chute é"<< chute<<endl;
         bool acertou = chute == NUMERO_SECRETO; // variável booleana
         bool maior = chute > NUMERO_SECRETO;
@@ -31,5 +36,8 @@ int main() {
         }
     }
     cout <<"Fim de jogo!"<<endl;
-    cout <<"Você acertou o número secreto em "<<tentativas<<"tentativas"<<endl;
+    cout <<"Você acertou o número secreto em "<<tentativas<<" tentativas"<<endl;
+    cout.precision(2); //é a precisão com 2 casas depois da virgula
+    cout << fixed; //modificador de saida. ele vai fixar a virugla no final do numero
+    cout <<"sua pontuação foi de "<<pontos<<" pontos"<<endl;
 }
