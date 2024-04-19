@@ -7,11 +7,13 @@ int main() {
                  "********************" << std::endl;
     const int NUMERO_SECRETO = 42; // variável sempre letra maiuscula
     //cout<<"O número secreto é "<< numero_secreto <<" Não conte para ninguém!"<<endl;
-
     bool nao_acertou = true;
+    int tentativas = 0;
 
     while(nao_acertou){
+        tentativas = tentativas +1; // ou tentativas++
         int chute;
+        cout<<"Tentativas "<< tentativas<<endl;
         cout<<"qual o seu chute?";
         cin >> chute;
         cout<<"o valor do seu chute é"<< chute<<endl;
@@ -29,5 +31,5 @@ int main() {
         }
     }
     cout <<"Fim de jogo!"<<endl;
-
+    cout <<"Você acertou o número secreto em "<<tentativas<<"tentativas"<<endl;
 }
