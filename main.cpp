@@ -1,18 +1,37 @@
 #include <iostream>
+#include <cstdlib> //biblioteca padrão que tem a função rand
+#include <ctime>
 using namespace std; //não vou precisar mais usar o std::cout e o std::endl, apenas o cout e endl
 //
 int main() {
     std::cout << "******************* \n "
                  "Bem vindos ao jogo da adivinhação!\n"
                  "********************" << std::endl;
-    const int NUMERO_SECRETO = 42; // variável sempre letra maiuscula
+
+    cout<<"Escolha seu nível de dificuldade"<<endl;
+    cout<<"Fácil (F), Médio (M) ou Difícil (D)"<<endl;
+    char dificuldade;
+    cin >> dificuldade; //cin é para ler
+
+    int numero_de_tentativas;
+    if(dificuldade == 'F'){
+        numero_de_tentativas = 15;
+    } else if (dificuldade == 'M'){
+        numero_de_tentativas = 10;
+    } else {
+        numero_de_tentativas = 5;
+    }
+
+    srand(time(0));//essa função define a semente dos numeros aleatórios
+    //time 0 ou time null
+    int NUMERO_SECRETO = rand() % 100; // variável sempre letra maiuscula
     //cout<<"O número secreto é "<< numero_secreto <<" Não conte para ninguém!"<<endl;
     bool nao_acertou = true;
     int tentativas = 0;
     double pontos = 1000.0;
 
-    while(nao_acertou){
-        tentativas = tentativas +1; // ou tentativas++
+    for(tentativas = 1; tentativas <=numero_de_tentativas; tentativas++){ // vai somar mais um
+        //tentativas = tentativas +1; // ou tentativas++  //não precisa mais no for, pq está dentro do laço
         int chute;
         cout<<"Tentativas "<< tentativas<<endl;
         cout<<"qual o seu chute?";
@@ -28,6 +47,7 @@ int main() {
         if(acertou){
             cout<<"parabéns você acertou o número secreto!!"<<endl;
             nao_acertou = false;
+            break;
         } else if (maior){
             cout<<"seu chute foi maior que o número secreto"<<endl;
         }
@@ -36,8 +56,13 @@ int main() {
         }
     }
     cout <<"Fim de jogo!"<<endl;
-    cout <<"Você acertou o número secreto em "<<tentativas<<" tentativas"<<endl;
-    cout.precision(2); //é a precisão com 2 casas depois da virgula
-    cout << fixed; //modificador de saida. ele vai fixar a virugla no final do numero
-    cout <<"sua pontuação foi de "<<pontos<<" pontos"<<endl;
+    if (nao_acertou){
+        cout<<"você perdeu! tente novamente!"<<endl;
+    }else{
+        cout <<"Você acertou o número secreto em "<<tentativas<<" tentativas"<<endl;
+        cout.precision(2); //é a precisão com 2 casas depois da virgula
+        cout << fixed; //modificador de saida. ele vai fixar a virugla no final do numero
+        cout <<"sua pontuação foi de "<<pontos<<" pontos"<<endl;
+    }
+
 }
