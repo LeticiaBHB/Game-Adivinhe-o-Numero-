@@ -8,22 +8,26 @@ int main() {
     const int NUMERO_SECRETO = 42; // variável sempre letra maiuscula
     //cout<<"O número secreto é "<< numero_secreto <<" Não conte para ninguém!"<<endl;
 
+    bool nao_acertou = true;
 
+    while(nao_acertou){
+        int chute;
+        cout<<"qual o seu chute?";
+        cin >> chute;
+        cout<<"o valor do seu chute é"<< chute<<endl;
+        bool acertou = chute == NUMERO_SECRETO; // variável booleana
+        bool maior = chute > NUMERO_SECRETO;
 
-    int chute;
-    cout<<"qual o seu chute?";
-    cin >> chute;
-    cout<<"o valor do seu chute é"<< chute<<endl;
-    bool acertou = chute == NUMERO_SECRETO; // variável booleana
-    bool maior = chute > NUMERO_SECRETO;
-
-    if(acertou){
-        cout<<"parabéns você acertou o número secreto!!"<<endl;
-    } else if (maior){
-    cout<<"seu chute foi maior que o número secreto"<<endl;
+        if(acertou){
+            cout<<"parabéns você acertou o número secreto!!"<<endl;
+            nao_acertou = false;
+        } else if (maior){
+            cout<<"seu chute foi maior que o número secreto"<<endl;
+        }
+        else {
+            cout << "seu chute foi menor que o número secreto" << endl;
+        }
     }
-    else{
-        cout<<"seu chute foi menor que o número secreto"<<endl;
-    }
-    return 0;
+    cout <<"Fim de jogo!"<<endl;
+
 }
